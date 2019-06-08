@@ -24,8 +24,8 @@ struct Matrix<T> {
     }
     subscript(row: Int, column: Int) -> T {
         get {
-            let safeRow = row > rows-1 ? 0 : row < 0 ? rows-1 : row
-            let safeColumn = column > columns-1 ? 0 : column < 0 ? columns-1 : column
+            let safeRow = 0 ... rows-1 ~= row ? row : row > rows-1 ? 0 : row < 0 ? rows-1 : -1
+            let safeColumn = 0 ... columns-1 ~= column ? column : column > columns-1 ? 0 : column < 0 ? columns-1 : -1
             assert(indexIsValid(row: safeRow, column: safeColumn), "Index out of range")
             return grid[(safeRow * columns) + safeColumn]
         }
@@ -193,10 +193,20 @@ extension GameScene {
             }
         }
 
-        for _ in 1...40 {
+        for _ in 1...1 {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
             let headings: [Direction] = [.north, .south, .east, .west]
-            let antNode = AntNode(heading: headings.randomElement()!, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight), color: SKColor(red: CGFloat.random(in: 0...0.7), green: CGFloat.random(in: 0...0), blue: CGFloat.random(in: 0...0), alpha: 1) )
+            let antNode = AntNode(
+                heading: headings.randomElement()!,
+                position: randomPosition,
+                size: CGSize(width: squareHeight, height: squareHeight),
+                color: SKColor(
+                    red: CGFloat.random(in: 0...0.7),
+                    green: CGFloat.random(in: 0...0.7),
+                    blue: CGFloat.random(in: 0...0.7),
+                    alpha: 1
+                )
+            )
             addChild(antNode)
             guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
             antNode.position = node.position
