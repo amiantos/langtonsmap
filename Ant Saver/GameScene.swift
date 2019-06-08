@@ -53,7 +53,7 @@ class GameScene: SKScene {
     private var columns: Int = 100
     
     override func didMove(to view: SKView) {
-        backgroundColor = .black
+        backgroundColor = .white
         scaleMode = .fill
         createGrid(columns: self.columns, rows: self.rows)
     }
@@ -105,10 +105,12 @@ class GameScene: SKScene {
             if currentNode.isFilled {
                 antNode.turnLeft()
                 currentNode.isFilled = false
-                currentNode.color = .white
+                currentNode.alpha = 0.2
+//                currentNode.color = .white
             } else {
                 antNode.turnRight()
                 currentNode.isFilled = true
+                currentNode.alpha = 1
                 currentNode.color = antNode.placeColor
             }
             antNode.currentPosition = (Int(currentNode.relativePosition.x), Int(currentNode.relativePosition.y))
@@ -188,11 +190,12 @@ extension GameScene {
 
         for _ in 1...1 {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
-            let antNode = AntNode(heading: .north, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight), color: SKColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1) )
+            let headings: [Direction] = [.north, .south, .east, .west]
+            let antNode = AntNode(heading: headings.randomElement()!, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight), color: SKColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1) )
             addChild(antNode)
             guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
             antNode.position = node.position
-            antNode.currentPosition = (Int(node.relativePosition.x), Int(node.relativePosition.x))
+            antNode.currentPosition = (Int(node.relativePosition.x), Int(node.relativePosition.y))
             antNodes.append(antNode)
         }
         
