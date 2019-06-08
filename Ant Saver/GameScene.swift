@@ -22,8 +22,8 @@ class GameScene: SKScene {
         size.height = frame.size.height * 2
     }
 
-    private var rows: Int = 90
-    private var columns: Int = 160
+    private var rows: Int = 70
+    private var columns: Int = 140
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -166,19 +166,20 @@ extension GameScene {
             }
         }
 
-        for _ in 1...8 {
+        var colors: [SKColor] = [
+            SKColor(hue: 0.225, saturation: 1, brightness: 0.59, alpha: 1.0),
+            SKColor(hue: 0.5528, saturation: 1, brightness: 0.67, alpha: 1.0),
+            SKColor(hue: 0.125, saturation: 0.34, brightness: 0.79, alpha: 1.0),
+            SKColor(hue: 0.0361, saturation: 0.46, brightness: 0.43, alpha: 1.0),
+        ]
+        for presetColor in colors {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
             let headings: [Direction] = [.north, .south, .east, .west]
             let antNode = AntNode(
                 heading: headings.randomElement()!,
                 position: randomPosition,
                 size: CGSize(width: squareHeight, height: squareHeight),
-                color: SKColor(
-                    red: CGFloat.random(in: 0...0.7),
-                    green: CGFloat.random(in: 0...0.7),
-                    blue: CGFloat.random(in: 0...0.7),
-                    alpha: 1
-                )
+                color: presetColor
             )
             addChild(antNode)
             guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
