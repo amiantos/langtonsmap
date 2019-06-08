@@ -14,11 +14,13 @@ class SquareNode: SKSpriteNode {
     let relativePosition: CGPoint
     var currentColor: SKColor
     var neighbors: [SquareNode] = []
+    var isFilled: Bool = false
 
     init(relativePosition: CGPoint, color: SKColor, size: CGSize) {
         self.relativePosition = relativePosition
         self.currentColor = color
         super.init(texture: squareTexture, color: color, size: size)
+        self.color = color
         anchorPoint = CGPoint(x: 0, y: 0)
         colorBlendFactor = 1
         zPosition = 0

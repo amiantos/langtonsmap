@@ -99,13 +99,29 @@ class GameScene: SKScene {
         }
 
         for antNode in antNodes {
-            guard let randomNode = matrix?[
-                (antNode.currentPosition.0 + Int.random(in: -1...1)), (antNode.currentPosition.1 + Int.random(in: -1...1))
-                ] else { return }
-            antNode.position = randomNode.position
-            print(randomNode.position)
-            antNode.currentPosition = (Int(randomNode.relativePosition.x), Int(randomNode.relativePosition.y))
-            randomNode.color = antNode.placeColor
+
+            guard let currentNode = matrix?[antNode.currentPosition.0, antNode.currentPosition.1] else { return }
+            antNode.position = currentNode.position
+            if currentNode.isFilled {
+                antNode.turnLeft()
+                currentNode.isFilled = false
+                currentNode.color = .white
+            } else {
+                antNode.turnRight()
+                currentNode.isFilled = true
+                currentNode.color = antNode.placeColor
+            }
+            antNode.currentPosition = (Int(currentNode.relativePosition.x), Int(currentNode.relativePosition.y))
+            antNode.moveForward()
+
+//            guard let randomNode = matrix?[
+//                (antNode.currentPosition.0 + Int.random(in: -1...1)), (antNode.currentPosition.1 + Int.random(in: -1...1))
+//                ] else { return }
+//            antNode.position = randomNode.position
+//            print(randomNode.position)
+//            antNode.currentPosition = (Int(randomNode.relativePosition.x), Int(randomNode.relativePosition.y))
+//            randomNode.color = antNode.placeColor
+
         }
     }
 }
@@ -170,9 +186,9 @@ extension GameScene {
             }
         }
 
-        for _ in 1...8 {
+        for _ in 1...1 {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
-            let antNode = AntNode(heading: .north, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight), color: [SKColor.red, SKColor.green, SKColor.blue].randomElement()!)
+            let antNode = AntNode(heading: .north, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight), color: SKColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1) )
             addChild(antNode)
             guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
             antNode.position = node.position

@@ -39,11 +39,11 @@ class AntNode: SKSpriteNode {
     public func moveForward() {
         switch heading {
         case .north:
-            currentPosition = (currentPosition.0, currentPosition.1 - 1)
+            currentPosition = (currentPosition.0, currentPosition.1 + 1)
         case .east:
             currentPosition = (currentPosition.0 + 1, currentPosition.1)
         case .south:
-            currentPosition = (currentPosition.0, currentPosition.1 + 1)
+            currentPosition = (currentPosition.0, currentPosition.1 - 1)
         case .west:
             currentPosition = (currentPosition.0 - 1, currentPosition.1)
         }
