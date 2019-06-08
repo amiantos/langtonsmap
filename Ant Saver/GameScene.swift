@@ -22,8 +22,8 @@ class GameScene: SKScene {
         size.height = frame.size.height * 2
     }
 
-    private var rows: Int = 100
-    private var columns: Int = 100
+    private var rows: Int = 90
+    private var columns: Int = 160
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -166,7 +166,7 @@ extension GameScene {
             }
         }
 
-        for _ in 1...1 {
+        for _ in 1...8 {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
             let headings: [Direction] = [.north, .south, .east, .west]
             let antNode = AntNode(
