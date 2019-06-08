@@ -14,6 +14,7 @@
 		4431A05222AAF60000865489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4431A05022AAF60000865489 /* Main.storyboard */; };
 		4431A05B22AB0CDE00865489 /* SquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05A22AB0CDE00865489 /* SquareNode.swift */; };
 		4431A05D22AB0D2E00865489 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05C22AB0D2E00865489 /* FileGrabber.swift */; };
+		B45BF8B922AC2D4E00D77162 /* ToroidalMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */; };
 		B49498A322AB48460027308B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49498A222AB48460027308B /* Direction.swift */; };
 		B49498A522AB492D0027308B /* AntNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49498A422AB492D0027308B /* AntNode.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		4431A05422AAF60000865489 /* Ant_Saver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ant_Saver.entitlements; sourceTree = "<group>"; };
 		4431A05A22AB0CDE00865489 /* SquareNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareNode.swift; sourceTree = "<group>"; };
 		4431A05C22AB0D2E00865489 /* FileGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGrabber.swift; sourceTree = "<group>"; };
+		B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToroidalMatrix.swift; sourceTree = "<group>"; };
 		B49498A222AB48460027308B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		B49498A422AB492D0027308B /* AntNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				4431A05C22AB0D2E00865489 /* FileGrabber.swift */,
 				B49498A222AB48460027308B /* Direction.swift */,
 				B49498A422AB492D0027308B /* AntNode.swift */,
+				B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */,
 			);
 			path = "Ant Saver";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				4431A05D22AB0D2E00865489 /* FileGrabber.swift in Sources */,
 				4431A04D22AAF5FF00865489 /* ViewController.swift in Sources */,
+				B45BF8B922AC2D4E00D77162 /* ToroidalMatrix.swift in Sources */,
 				4431A04B22AAF5FF00865489 /* GameScene.swift in Sources */,
 				4431A05B22AB0CDE00865489 /* SquareNode.swift in Sources */,
 				4431A04522AAF5FF00865489 /* AppDelegate.swift in Sources */,
