@@ -21,6 +21,7 @@ class AntNode: SKSpriteNode {
         anchorPoint = CGPoint(x: 0, y: 0)
         colorBlendFactor = 1
         zPosition = 1
+        alpha = 0
     }
 
     required init?(coder aDecoder: NSCoder) {
