@@ -11,10 +11,12 @@ import SpriteKit
 class AntNode: SKSpriteNode {
     public var heading: Direction
     public var currentPosition: (Int, Int)
+    public let placeColor: SKColor
 
-    init(heading: Direction, position: (Int, Int), size: CGSize) {
+    init(heading: Direction, position: (Int, Int), size: CGSize, color: SKColor) {
         self.heading = heading
         self.currentPosition = position
+        self.placeColor = color
         super.init(texture: squareTexture, color: .red, size: size)
         anchorPoint = CGPoint(x: 0, y: 0)
         colorBlendFactor = 1
