@@ -9,19 +9,51 @@
 import SpriteKit
 import GameplayKit
 
+struct Matrix<T> {
+//    var matrix:Matrix<Bool> = Matrix(rows: 1000, columns: 1000,defaultValue:false)
+//    matrix[0,10] = true
+    let rows: Int, columns: Int
+    var grid: [T]
+    init(rows: Int, columns: Int, defaultValue: T) {
+        self.rows = rows
+        self.columns = columns
+        grid = Array(repeating: defaultValue, count: rows * columns)
+    }
+    func indexIsValid(row: Int, column: Int) -> Bool {
+        return row >= 0 && row < rows && column >= 0 && column < columns
+    }
+    subscript(row: Int, column: Int) -> T {
+        get {
+            assert(indexIsValid(row: row, column: column), "Index out of range")
+            return grid[(row * columns) + column]
+        }
+        set {
+            assert(indexIsValid(row: row, column: column), "Index out of range")
+            grid[(row * columns) + column] = newValue
+        }
+    }
+}
+
 class GameScene: SKScene {
 
+    private var matrix: Matrix<SquareNode>?
+
     private var allNodes: [SquareNode] = []
+
+    private var antNodes: [AntNode] = []
 
     override func sceneDidLoad() {
         size.width = frame.size.width * 2
         size.height = frame.size.height * 2
     }
+
+    private var rows: Int = 300
+    private var columns: Int = 300
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
         scaleMode = .fill
-        createGrid()
+        createGrid(columns: self.columns, rows: self.rows)
     }
     
     
@@ -57,22 +89,34 @@ class GameScene: SKScene {
     }
     
     private var lastUpdate: TimeInterval = 0
+    private var lastLocation: (Int, Int) = (0, 0)
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if lastUpdate == 0 {
-            // Create Grid
             lastUpdate = currentTime
         }
+
     }
 }
 
 extension GameScene {
 
-    func createGrid() {
-        let lengthSquares: CGFloat = 300
-        let heightSquares: CGFloat = 300
+    func createAnt() {
 
-        let colors: [SKColor] = [.red, .green, .blue]
+    }
+
+    func createGrid(columns: Int, rows: Int) {
+        let lengthSquares: CGFloat = CGFloat(columns)
+        let heightSquares: CGFloat = CGFloat(rows)
+
+        matrix = Matrix(
+            rows: Int(lengthSquares),
+            columns: Int(heightSquares),
+            defaultValue: SquareNode(
+                relativePosition: CGPoint.zero,
+                color: .black,
+                size: .zero)
+        )
 
         let totalSquares: CGFloat = lengthSquares * heightSquares
         let squareWidth: CGFloat = size.width / lengthSquares
@@ -92,13 +136,15 @@ extension GameScene {
 
             let newSquare = SquareNode(
                 relativePosition: squareRelativePosition,
-                color: colors.randomElement()!,
+                color: .white,
                 size: squareSize
             )
             addChild(newSquare)
             newSquare.position = squarePosition
 
             allNodes.append(newSquare)
+
+            matrix![Int(squareRelativePosition.x), Int(squareRelativePosition.y)] = newSquare
 
             createdSquares += 1
 
@@ -113,55 +159,11 @@ extension GameScene {
             }
         }
 
-//        // Calculate Neighbors
-//
-//        for node in allNodes {
-//            let neighbors = allNodes.filter {
-//                let delta = (abs(node.relativePosition.x - $0.relativePosition.x), abs(node.relativePosition.y - $0.relativePosition.y))
-//                switch delta {
-//                case (1, 1), (1, 0), (0, 1):
-//                    return true
-//                default:
-//                    return false
-//                }
-//            }
-//            node.neighbors = neighbors
-//        }
-//
-//        // Add edges to each other
-//        let maxX = lengthSquares - 1
-//        let maxY = heightSquares - 1
-//        let edgeNodes = allNodes.filter { [0, maxX].contains($0.relativePosition.x) || [0, maxY].contains($0.relativePosition.y) }
-//        for node in edgeNodes {
-//            // Calculate looping neighbor's position
-//            let newNeighborX: CGFloat = {
-//                if node.relativePosition.x == 0 {
-//                    return maxX
-//                } else if node.relativePosition.x == maxX {
-//                    return 0
-//                }
-//                return node.relativePosition.x
-//            }()
-//            let newNeighborY: CGFloat = {
-//                if node.relativePosition.y == 0 {
-//                    return maxY
-//                } else if node.relativePosition.y == maxY {
-//                    return 0
-//                }
-//                return node.relativePosition.y
-//            }()
-//
-//            // Find nodes at that position
-//            let newNeighborFilter = edgeNodes.filter {
-//                $0.relativePosition.x == newNeighborX && $0.relativePosition.y == newNeighborY
-//            }
-//            if let newNeighbor = newNeighborFilter.first {
-//                node.neighbors.append(newNeighbor)
-//                newNeighbor.neighbors.append(node)
-//            }
-//        }
-
-
+        let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
+        let antNode = AntNode(heading: .north, position: randomPosition, size: CGSize(width: squareHeight, height: squareHeight))
+        addChild(antNode)
+        guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
+        antNode.position = node.position
     }
 
 }
