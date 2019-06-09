@@ -12,12 +12,14 @@ class AntNode: SKSpriteNode {
     public var heading: Direction
     public var currentPosition: (Int, Int)
     public let placeColor: SKColor
+    public let type: NodeType
 
-    init(heading: Direction, position: (Int, Int), size: CGSize, color: SKColor) {
+    init(heading: Direction, position: (Int, Int), size: CGSize, type: NodeType) {
         self.heading = heading
         self.currentPosition = position
-        self.placeColor = color
-        super.init(texture: squareTexture, color: .red, size: size)
+        self.type = type
+        self.placeColor = self.type.getColor()
+        super.init(texture: squareTexture, color: self.placeColor, size: size)
         anchorPoint = CGPoint(x: 0, y: 0)
         colorBlendFactor = 1
         zPosition = 1

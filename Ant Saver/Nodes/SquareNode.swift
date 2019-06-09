@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 let squareTexture = FileGrabber.shared.getSKTexture(named: "square")
 
 class SquareNode: SKSpriteNode {
@@ -15,15 +16,20 @@ class SquareNode: SKSpriteNode {
     var currentColor: SKColor
     var neighbors: [SquareNode] = []
     var isFilled: Bool = false
+    var type: NodeType = .empty
+    
 
-    init(relativePosition: CGPoint, color: SKColor, size: CGSize) {
+    init(relativePosition: CGPoint, type: NodeType, size: CGSize) {
         self.relativePosition = relativePosition
-        self.currentColor = color
-        super.init(texture: squareTexture, color: color, size: size)
+        self.type = type
+        self.currentColor = type.getColor()
+        self.isFilled = Float.random(in: 0...5) <= 0.5 ? true : false
+        super.init(texture: squareTexture, color: self.currentColor, size: size)
         self.color = color
         anchorPoint = CGPoint(x: 0, y: 0)
         colorBlendFactor = 1
         zPosition = 0
+        alpha = isFilled ? 1 : 0.8
     }
 
     required init?(coder _: NSCoder) {

@@ -80,16 +80,18 @@ class GameScene: SKScene {
 
             guard let currentNode = matrix?[antNode.currentPosition.0, antNode.currentPosition.1] else { return }
             antNode.position = currentNode.position
-            if currentNode.isFilled {
-                antNode.turnLeft()
-                currentNode.isFilled = false
-                currentNode.alpha = 0.8
-//                currentNode.color = .white
-            } else {
-                antNode.turnRight()
-                currentNode.isFilled = true
-                currentNode.alpha = 1
-                currentNode.color = antNode.placeColor
+            if antNode.type.canPaint(type: currentNode.type) {
+                if currentNode.isFilled {
+                    antNode.turnLeft()
+                    currentNode.isFilled = false
+                    currentNode.alpha = 0.8
+                } else {
+                    antNode.turnRight()
+                    currentNode.isFilled = true
+                    currentNode.type = antNode.type
+                    currentNode.alpha = 1
+                    currentNode.color = antNode.placeColor
+                }
             }
             antNode.currentPosition = (Int(currentNode.relativePosition.x), Int(currentNode.relativePosition.y))
             antNode.moveForward()
@@ -121,7 +123,7 @@ extension GameScene {
             columns: Int(heightSquares),
             defaultValue: SquareNode(
                 relativePosition: CGPoint.zero,
-                color: .black,
+                type: .water,
                 size: .zero)
         )
 
@@ -143,7 +145,7 @@ extension GameScene {
 
             let newSquare = SquareNode(
                 relativePosition: squareRelativePosition,
-                color: .black,
+                type: .water,
                 size: squareSize
             )
             addChild(newSquare)
@@ -166,20 +168,14 @@ extension GameScene {
             }
         }
 
-        var colors: [SKColor] = [
-            SKColor(hue: 0.225, saturation: 1, brightness: 0.59, alpha: 1.0),
-            SKColor(hue: 0.5528, saturation: 1, brightness: 0.67, alpha: 1.0),
-            SKColor(hue: 0.125, saturation: 0.34, brightness: 0.79, alpha: 1.0),
-            SKColor(hue: 0.0361, saturation: 0.46, brightness: 0.43, alpha: 1.0),
-        ]
-        for presetColor in colors {
+        NodeType.allCases.forEach {
             let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
             let headings: [Direction] = [.north, .south, .east, .west]
             let antNode = AntNode(
                 heading: headings.randomElement()!,
                 position: randomPosition,
                 size: CGSize(width: squareHeight, height: squareHeight),
-                color: presetColor
+                type: $0
             )
             addChild(antNode)
             guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
