@@ -51,7 +51,9 @@ enum NodeType: CaseIterable {
             return true
         case (.sand, .foliage):
             return true
-        case (.water, .sand):
+        case (.water, .water):
+            return false
+        case (.water, _):
             return true
         default:
             return false

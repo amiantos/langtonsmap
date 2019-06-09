@@ -21,10 +21,12 @@ class GameScene: SKScene {
         size.width = frame.size.width * 2
         size.height = frame.size.height * 2
     }
-
+//
     private var rows: Int = 70
     private var columns: Int = 140
-    
+//    private var rows: Int = 35
+//    private var columns: Int = 70
+
     override func didMove(to view: SKView) {
         backgroundColor = .black
         scaleMode = .fill
@@ -80,17 +82,21 @@ class GameScene: SKScene {
 
             guard let currentNode = matrix?[antNode.currentPosition.0, antNode.currentPosition.1] else { return }
             antNode.position = currentNode.position
-            if antNode.type.canPaint(type: currentNode.type) {
-                if currentNode.isFilled {
-                    antNode.turnLeft()
-                    currentNode.isFilled = false
-                    currentNode.alpha = 0.8
-                } else {
-                    antNode.turnRight()
-                    currentNode.isFilled = true
+            if currentNode.isFilled {
+                antNode.turnLeft()
+                currentNode.isFilled = false
+                if antNode.type.canPaint(type: currentNode.type) {
                     currentNode.type = antNode.type
-                    currentNode.alpha = 1
                     currentNode.color = antNode.placeColor
+                    currentNode.alpha = 0.8
+                }
+            } else {
+                antNode.turnRight()
+                currentNode.isFilled = true
+                if antNode.type.canPaint(type: currentNode.type) {
+                    currentNode.type = antNode.type
+                    currentNode.color = antNode.placeColor
+                    currentNode.alpha = 1
                 }
             }
             antNode.currentPosition = (Int(currentNode.relativePosition.x), Int(currentNode.relativePosition.y))
@@ -168,22 +174,51 @@ extension GameScene {
             }
         }
 
-        NodeType.allCases.forEach {
-            let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
-            let headings: [Direction] = [.north, .south, .east, .west]
-            let antNode = AntNode(
-                heading: headings.randomElement()!,
-                position: randomPosition,
-                size: CGSize(width: squareHeight, height: squareHeight),
-                type: $0
-            )
-            addChild(antNode)
-            guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
-            antNode.position = node.position
-            antNode.currentPosition = (Int(node.relativePosition.x), Int(node.relativePosition.y))
-            antNodes.append(antNode)
-        }
+
+        createAntNode(type: .water, size: CGSize(width: squareWidth, height: squareHeight))
+
+        createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
+
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+
+        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
+
+        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
         
+        createAntNode(type: .sand, size: CGSize(width: squareWidth, height: squareHeight))
+        
+    }
+
+    func createAntNode(type: NodeType, size: CGSize) {
+        let randomPosition = (Int.random(in: 0...self.rows-1), Int.random(in: 0...self.columns-1))
+        let headings: [Direction] = [.north, .south, .east, .west]
+        let antNode = AntNode(
+            heading: headings.randomElement()!,
+            position: randomPosition,
+            size: size,
+            type: type
+        )
+        addChild(antNode)
+        guard let node = matrix?[randomPosition.0, randomPosition.1] else { return }
+        antNode.position = node.position
+        antNode.currentPosition = (Int(node.relativePosition.x), Int(node.relativePosition.y))
+        antNodes.append(antNode)
     }
 
 }

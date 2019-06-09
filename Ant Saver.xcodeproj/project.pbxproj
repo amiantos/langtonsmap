@@ -76,7 +76,6 @@
 				4431A05322AAF60000865489 /* Info.plist */,
 				4431A05422AAF60000865489 /* Ant_Saver.entitlements */,
 				4431A05C22AB0D2E00865489 /* FileGrabber.swift */,
-				B49498A222AB48460027308B /* Direction.swift */,
 				B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */,
 			);
 			path = "Ant Saver";
@@ -88,6 +87,7 @@
 				4431A05A22AB0CDE00865489 /* SquareNode.swift */,
 				B49498A422AB492D0027308B /* AntNode.swift */,
 				B45BF8BF22AC83FB00D77162 /* NodeType.swift */,
+				B49498A222AB48460027308B /* Direction.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";

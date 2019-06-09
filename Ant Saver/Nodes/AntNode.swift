@@ -38,6 +38,10 @@ class AntNode: SKSpriteNode {
         heading = heading.turningRight
     }
 
+    public func turnAround() {
+        heading = heading.turning180
+    }
+
     // MARK: - Moving
     public func moveForward() {
         switch heading {
