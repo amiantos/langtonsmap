@@ -22,7 +22,7 @@ enum NodeType: CaseIterable {
         case .lava:
             return SKColor(hue: 0.9861, saturation: 0.92, brightness: 0.81, alpha: 1.0)
         case .rock:
-            return SKColor(hue: 0.0806, saturation: 0.2, brightness: 0.33, alpha: 1.0)
+            return SKColor(hue: 0, saturation: 0.19, brightness: 0.17, alpha: 1.0)
         case .dirt:
             return SKColor(hue: 0.0361, saturation: 0.46, brightness: 0.43, alpha: 1.0)
         case .foliage:
