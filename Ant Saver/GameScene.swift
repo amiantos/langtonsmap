@@ -21,7 +21,7 @@ class GameScene: SKScene {
         size.width = frame.size.width * 2
         size.height = frame.size.height * 2
     }
-//
+
     private var rows: Int = 70
     private var columns: Int = 140
 //    private var rows: Int = 35
@@ -31,11 +31,6 @@ class GameScene: SKScene {
         backgroundColor = .black
         scaleMode = .fill
         createGrid(columns: self.columns, rows: self.rows)
-
-//        let  blur = CIFilter(name:"CIGaussianBlur",parameters: ["inputRadius": 30.0])
-//        self.filter = blur
-//        self.shouldRasterize = false
-//        self.shouldEnableEffects = true
     }
     
     
@@ -69,56 +64,33 @@ class GameScene: SKScene {
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
     }
-    
-    private var lastUpdate: TimeInterval = 0
-    private var lastLocation: (Int, Int) = (0, 0)
+
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        if lastUpdate == 0 {
-            lastUpdate = currentTime
-        }
-
         for antNode in antNodes {
-
             guard let currentNode = matrix?[antNode.currentPosition.0, antNode.currentPosition.1] else { return }
             antNode.position = currentNode.position
             if currentNode.isFilled {
                 antNode.turnLeft()
                 currentNode.isFilled = false
                 if antNode.type.canPaint(type: currentNode.type) {
-                    currentNode.type = antNode.type
-                    currentNode.color = antNode.placeColor
+                    currentNode.changeType(antNode.type)
                     currentNode.alpha = 0.8
                 }
             } else {
                 antNode.turnRight()
                 currentNode.isFilled = true
                 if antNode.type.canPaint(type: currentNode.type) {
-                    currentNode.type = antNode.type
-                    currentNode.color = antNode.placeColor
+                    currentNode.changeType(antNode.type)
                     currentNode.alpha = 1
                 }
             }
             antNode.currentPosition = (Int(currentNode.relativePosition.x), Int(currentNode.relativePosition.y))
             antNode.moveForward()
-
-//            guard let randomNode = matrix?[
-//                (antNode.currentPosition.0 + Int.random(in: -1...1)), (antNode.currentPosition.1 + Int.random(in: -1...1))
-//                ] else { return }
-//            antNode.position = randomNode.position
-//            print(randomNode.position)
-//            antNode.currentPosition = (Int(randomNode.relativePosition.x), Int(randomNode.relativePosition.y))
-//            randomNode.color = antNode.placeColor
-
         }
     }
 }
 
 extension GameScene {
-
-    func createAnt() {
-
-    }
 
     func createGrid(columns: Int, rows: Int) {
         let lengthSquares: CGFloat = CGFloat(columns)
@@ -174,35 +146,33 @@ extension GameScene {
             }
         }
 
+        // Prefetch neighbors
+        for node in allNodes {
+            if let matrix = self.matrix {
+            var neighbors: [SquareNode] = []
+                neighbors.append(matrix[Int(node.relativePosition.x - 1), Int(node.relativePosition.y)])
+                neighbors.append(matrix[Int(node.relativePosition.x + 1), Int(node.relativePosition.y)])
+                neighbors.append(matrix[Int(node.relativePosition.x), Int(node.relativePosition.y + 1)])
+                neighbors.append(matrix[Int(node.relativePosition.x), Int(node.relativePosition.y - 1)])
+                neighbors.append(matrix[Int(node.relativePosition.x + 1), Int(node.relativePosition.y + 1)])
+                neighbors.append(matrix[Int(node.relativePosition.x - 1), Int(node.relativePosition.y - 1)])
+                neighbors.append(matrix[Int(node.relativePosition.x - 1), Int(node.relativePosition.y + 1)])
+                neighbors.append(matrix[Int(node.relativePosition.x + 1), Int(node.relativePosition.y - 1)])
+                node.neighbors = neighbors
+
+            }
+        }
+
 
         createAntNode(type: .water, size: CGSize(width: squareWidth, height: squareHeight))
 
         createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
+        createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
 
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .rock, size: CGSize(width: squareWidth, height: squareHeight))
+//        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
+//
+//        createAntNode(type: .sand, size: CGSize(width: squareWidth, height: squareHeight))
 
-        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .dirt, size: CGSize(width: squareWidth, height: squareHeight))
-
-        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
-        
-        createAntNode(type: .sand, size: CGSize(width: squareWidth, height: squareHeight))
-        
     }
 
     func createAntNode(type: NodeType, size: CGSize) {

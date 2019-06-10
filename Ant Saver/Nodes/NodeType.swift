@@ -17,6 +17,25 @@ enum NodeType: CaseIterable {
     case water
     case empty
 
+    func getNext() -> NodeType {
+        switch self {
+        case .lava:
+            return .rock
+        case .rock:
+            return .dirt
+        case .dirt:
+            return .foliage
+        case .foliage:
+            return .foliage
+        case .sand:
+            return .sand
+        case .water:
+            return .water
+        case .empty:
+            return .water
+        }
+    }
+
     func getColor() -> SKColor {
         switch self {
         case .lava:
@@ -43,16 +62,16 @@ enum NodeType: CaseIterable {
         switch (self, type) {
         case (.lava, .water):
             return true
-        case (.rock, .lava):
-            return true
-        case (.dirt, .rock):
-            return true
-        case (.foliage, .dirt):
-            return true
-        case (.sand, .foliage):
-            return true
-        case (.water, .water):
-            return false
+//        case (.rock, .lava):
+//            return true
+//        case (.dirt, .rock):
+//            return true
+//        case (.foliage, .dirt):
+//            return true
+//        case (.sand, .foliage):
+//            return true
+//        case (.water, .water):
+//            return false
         case (.water, _):
             return true
         default:
