@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4431A04122AAF5FF00865489 /* Ant Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ant Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4431A04122AAF5FF00865489 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4431A04422AAF5FF00865489 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4431A04A22AAF5FF00865489 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4431A04C22AAF5FF00865489 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		4431A05422AAF60000865489 /* Ant_Saver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ant_Saver.entitlements; sourceTree = "<group>"; };
 		4431A05A22AB0CDE00865489 /* SquareNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareNode.swift; sourceTree = "<group>"; };
 		4431A05C22AB0D2E00865489 /* FileGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGrabber.swift; sourceTree = "<group>"; };
-		44FEDB5122AF1F94002FE07C /* Langton's Planet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Langton's Planet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44FEDB5122AF1F94002FE07C /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FEDB5322AF1F94002FE07C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44FEDB5B22AF1F94002FE07C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		44FEDB6222AF1F96002FE07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,8 +72,8 @@
 		4431A03822AAF5FF00865489 = {
 			isa = PBXGroup;
 			children = (
-				4431A04322AAF5FF00865489 /* Ant Saver */,
-				44FEDB5222AF1F94002FE07C /* Langton's Planet */,
+				4431A04322AAF5FF00865489 /* macOS */,
+				44FEDB5222AF1F94002FE07C /* tvOS */,
 				4431A04222AAF5FF00865489 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,13 +81,13 @@
 		4431A04222AAF5FF00865489 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4431A04122AAF5FF00865489 /* Ant Saver.app */,
-				44FEDB5122AF1F94002FE07C /* Langton's Planet.app */,
+				4431A04122AAF5FF00865489 /* macOS.app */,
+				44FEDB5122AF1F94002FE07C /* tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4431A04322AAF5FF00865489 /* Ant Saver */ = {
+		4431A04322AAF5FF00865489 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
 				B45BF8BE22AC83D500D77162 /* Nodes */,
@@ -101,17 +101,17 @@
 				4431A05C22AB0D2E00865489 /* FileGrabber.swift */,
 				B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */,
 			);
-			path = "Ant Saver";
+			path = macOS;
 			sourceTree = "<group>";
 		};
-		44FEDB5222AF1F94002FE07C /* Langton's Planet */ = {
+		44FEDB5222AF1F94002FE07C /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				44FEDB5322AF1F94002FE07C /* AppDelegate.swift */,
 				44FEDB5B22AF1F94002FE07C /* GameViewController.swift */,
 				44FEDB6222AF1F96002FE07C /* Info.plist */,
 			);
-			path = "Langton's Planet";
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 		B45BF8BE22AC83D500D77162 /* Nodes */ = {
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4431A04022AAF5FF00865489 /* Ant Saver */ = {
+		4431A04022AAF5FF00865489 /* macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4431A05722AAF60000865489 /* Build configuration list for PBXNativeTarget "Ant Saver" */;
+			buildConfigurationList = 4431A05722AAF60000865489 /* Build configuration list for PBXNativeTarget "macOS" */;
 			buildPhases = (
 				4431A03D22AAF5FF00865489 /* Sources */,
 				4431A03E22AAF5FF00865489 /* Frameworks */,
@@ -140,14 +140,14 @@
 			);
 			dependencies = (
 			);
-			name = "Ant Saver";
+			name = macOS;
 			productName = "Ant Saver";
-			productReference = 4431A04122AAF5FF00865489 /* Ant Saver.app */;
+			productReference = 4431A04122AAF5FF00865489 /* macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		44FEDB5022AF1F94002FE07C /* Langton's Planet */ = {
+		44FEDB5022AF1F94002FE07C /* tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "Langton's Planet" */;
+			buildConfigurationList = 44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "tvOS" */;
 			buildPhases = (
 				44FEDB4D22AF1F94002FE07C /* Sources */,
 				44FEDB4E22AF1F94002FE07C /* Frameworks */,
@@ -157,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = "Langton's Planet";
+			name = tvOS;
 			productName = "Langton's Planet";
-			productReference = 44FEDB5122AF1F94002FE07C /* Langton's Planet.app */;
+			productReference = 44FEDB5122AF1F94002FE07C /* tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +180,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4431A03C22AAF5FF00865489 /* Build configuration list for PBXProject "Ant Saver" */;
+			buildConfigurationList = 4431A03C22AAF5FF00865489 /* Build configuration list for PBXProject "Langton's Planet" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -193,8 +193,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4431A04022AAF5FF00865489 /* Ant Saver */,
-				44FEDB5022AF1F94002FE07C /* Langton's Planet */,
+				4431A04022AAF5FF00865489 /* macOS */,
+				44FEDB5022AF1F94002FE07C /* tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -385,16 +385,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Ant Saver/Ant_Saver.entitlements";
+				CODE_SIGN_ENTITLEMENTS = macOS/Ant_Saver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
-				INFOPLIST_FILE = "Ant Saver/Info.plist";
+				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Ant-Saver";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Langton-s-Planet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -404,16 +404,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Ant Saver/Ant_Saver.entitlements";
+				CODE_SIGN_ENTITLEMENTS = macOS/Ant_Saver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
-				INFOPLIST_FILE = "Ant Saver/Info.plist";
+				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Ant-Saver";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Langton-s-Planet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -426,7 +426,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Langton's Planet/Info.plist";
+				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,7 +448,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Langton's Planet/Info.plist";
+				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,7 +467,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4431A03C22AAF5FF00865489 /* Build configuration list for PBXProject "Ant Saver" */ = {
+		4431A03C22AAF5FF00865489 /* Build configuration list for PBXProject "Langton's Planet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4431A05522AAF60000865489 /* Debug */,
@@ -476,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4431A05722AAF60000865489 /* Build configuration list for PBXNativeTarget "Ant Saver" */ = {
+		4431A05722AAF60000865489 /* Build configuration list for PBXNativeTarget "macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4431A05822AAF60000865489 /* Debug */,
@@ -485,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "Langton's Planet" */ = {
+		44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44FEDB6322AF1F96002FE07C /* Debug */,

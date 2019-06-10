@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4431A04022AAF5FF00865489"
-               BuildableName = "Ant Saver.app"
-               BlueprintName = "Ant Saver"
-               ReferencedContainer = "container:Ant Saver.xcodeproj">
+               BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
+               BuildableName = "tvOS.app"
+               BlueprintName = "tvOS"
+               ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,19 +32,19 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4431A04022AAF5FF00865489"
-            BuildableName = "Ant Saver.app"
-            BlueprintName = "Ant Saver"
-            ReferencedContainer = "container:Ant Saver.xcodeproj">
+            BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
+            BuildableName = "tvOS.app"
+            BlueprintName = "tvOS"
+            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -55,18 +55,13 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4431A04022AAF5FF00865489"
-            BuildableName = "Ant Saver.app"
-            BlueprintName = "Ant Saver"
-            ReferencedContainer = "container:Ant Saver.xcodeproj">
+            BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
+            BuildableName = "tvOS.app"
+            BlueprintName = "tvOS"
+            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
-         <AdditionalOption
-            key = "MallocScribble"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -79,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4431A04022AAF5FF00865489"
-            BuildableName = "Ant Saver.app"
-            BlueprintName = "Ant Saver"
-            ReferencedContainer = "container:Ant Saver.xcodeproj">
+            BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
+            BuildableName = "tvOS.app"
+            BlueprintName = "tvOS"
+            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
