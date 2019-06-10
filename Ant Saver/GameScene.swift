@@ -45,7 +45,8 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
 
     }
-    
+
+    #if os(macOS)
     override func mouseDown(with event: NSEvent) {
         self.touchDown(atPoint: event.location(in: self))
     }
@@ -64,6 +65,7 @@ class GameScene: SKScene {
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
     }
+    #endif
 
     override func update(_ currentTime: TimeInterval) {
         for antNode in antNodes {

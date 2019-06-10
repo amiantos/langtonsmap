@@ -14,6 +14,16 @@
 		4431A05222AAF60000865489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4431A05022AAF60000865489 /* Main.storyboard */; };
 		4431A05B22AB0CDE00865489 /* SquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05A22AB0CDE00865489 /* SquareNode.swift */; };
 		4431A05D22AB0D2E00865489 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05C22AB0D2E00865489 /* FileGrabber.swift */; };
+		44FEDB5422AF1F94002FE07C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEDB5322AF1F94002FE07C /* AppDelegate.swift */; };
+		44FEDB5C22AF1F94002FE07C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEDB5B22AF1F94002FE07C /* GameViewController.swift */; };
+		44FEDB6622AF2004002FE07C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A04A22AAF5FF00865489 /* GameScene.swift */; };
+		44FEDB6722AF2007002FE07C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4431A04E22AAF60000865489 /* Assets.xcassets */; };
+		44FEDB6822AF200E002FE07C /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05C22AB0D2E00865489 /* FileGrabber.swift */; };
+		44FEDB6922AF2011002FE07C /* ToroidalMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */; };
+		44FEDB6A22AF2019002FE07C /* SquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431A05A22AB0CDE00865489 /* SquareNode.swift */; };
+		44FEDB6B22AF201B002FE07C /* AntNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49498A422AB492D0027308B /* AntNode.swift */; };
+		44FEDB6C22AF201F002FE07C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49498A222AB48460027308B /* Direction.swift */; };
+		44FEDB6D22AF2022002FE07C /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45BF8BF22AC83FB00D77162 /* NodeType.swift */; };
 		B45BF8B922AC2D4E00D77162 /* ToroidalMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */; };
 		B45BF8C022AC83FB00D77162 /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45BF8BF22AC83FB00D77162 /* NodeType.swift */; };
 		B49498A322AB48460027308B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49498A222AB48460027308B /* Direction.swift */; };
@@ -31,6 +41,10 @@
 		4431A05422AAF60000865489 /* Ant_Saver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ant_Saver.entitlements; sourceTree = "<group>"; };
 		4431A05A22AB0CDE00865489 /* SquareNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareNode.swift; sourceTree = "<group>"; };
 		4431A05C22AB0D2E00865489 /* FileGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGrabber.swift; sourceTree = "<group>"; };
+		44FEDB5122AF1F94002FE07C /* Langton's Planet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Langton's Planet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44FEDB5322AF1F94002FE07C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		44FEDB5B22AF1F94002FE07C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		44FEDB6222AF1F96002FE07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToroidalMatrix.swift; sourceTree = "<group>"; };
 		B45BF8BF22AC83FB00D77162 /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
 		B49498A222AB48460027308B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -45,6 +59,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44FEDB4E22AF1F94002FE07C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -52,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4431A04322AAF5FF00865489 /* Ant Saver */,
+				44FEDB5222AF1F94002FE07C /* Langton's Planet */,
 				4431A04222AAF5FF00865489 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4431A04122AAF5FF00865489 /* Ant Saver.app */,
+				44FEDB5122AF1F94002FE07C /* Langton's Planet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +102,16 @@
 				B45BF8B822AC2D4E00D77162 /* ToroidalMatrix.swift */,
 			);
 			path = "Ant Saver";
+			sourceTree = "<group>";
+		};
+		44FEDB5222AF1F94002FE07C /* Langton's Planet */ = {
+			isa = PBXGroup;
+			children = (
+				44FEDB5322AF1F94002FE07C /* AppDelegate.swift */,
+				44FEDB5B22AF1F94002FE07C /* GameViewController.swift */,
+				44FEDB6222AF1F96002FE07C /* Info.plist */,
+			);
+			path = "Langton's Planet";
 			sourceTree = "<group>";
 		};
 		B45BF8BE22AC83D500D77162 /* Nodes */ = {
@@ -112,6 +145,23 @@
 			productReference = 4431A04122AAF5FF00865489 /* Ant Saver.app */;
 			productType = "com.apple.product-type.application";
 		};
+		44FEDB5022AF1F94002FE07C /* Langton's Planet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "Langton's Planet" */;
+			buildPhases = (
+				44FEDB4D22AF1F94002FE07C /* Sources */,
+				44FEDB4E22AF1F94002FE07C /* Frameworks */,
+				44FEDB4F22AF1F94002FE07C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Langton's Planet";
+			productName = "Langton's Planet";
+			productReference = 44FEDB5122AF1F94002FE07C /* Langton's Planet.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,6 +173,9 @@
 				ORGANIZATIONNAME = "Brad Root";
 				TargetAttributes = {
 					4431A04022AAF5FF00865489 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					44FEDB5022AF1F94002FE07C = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -141,6 +194,7 @@
 			projectRoot = "";
 			targets = (
 				4431A04022AAF5FF00865489 /* Ant Saver */,
+				44FEDB5022AF1F94002FE07C /* Langton's Planet */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +206,14 @@
 			files = (
 				4431A04F22AAF60000865489 /* Assets.xcassets in Resources */,
 				4431A05222AAF60000865489 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44FEDB4F22AF1F94002FE07C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44FEDB6722AF2007002FE07C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +233,22 @@
 				4431A04522AAF5FF00865489 /* AppDelegate.swift in Sources */,
 				B49498A522AB492D0027308B /* AntNode.swift in Sources */,
 				B49498A322AB48460027308B /* Direction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44FEDB4D22AF1F94002FE07C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44FEDB6622AF2004002FE07C /* GameScene.swift in Sources */,
+				44FEDB6822AF200E002FE07C /* FileGrabber.swift in Sources */,
+				44FEDB6A22AF2019002FE07C /* SquareNode.swift in Sources */,
+				44FEDB6D22AF2022002FE07C /* NodeType.swift in Sources */,
+				44FEDB6C22AF201F002FE07C /* Direction.swift in Sources */,
+				44FEDB6922AF2011002FE07C /* ToroidalMatrix.swift in Sources */,
+				44FEDB5C22AF1F94002FE07C /* GameViewController.swift in Sources */,
+				44FEDB6B22AF201B002FE07C /* AntNode.swift in Sources */,
+				44FEDB5422AF1F94002FE07C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +419,51 @@
 			};
 			name = Release;
 		};
+		44FEDB6322AF1F96002FE07C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Langton's Planet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Langton-s-Planet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		44FEDB6422AF1F96002FE07C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Langton's Planet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "net.amiantos.Langton-s-Planet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -358,6 +481,15 @@
 			buildConfigurations = (
 				4431A05822AAF60000865489 /* Debug */,
 				4431A05922AAF60000865489 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44FEDB6522AF1F96002FE07C /* Build configuration list for PBXNativeTarget "Langton's Planet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44FEDB6322AF1F96002FE07C /* Debug */,
+				44FEDB6422AF1F96002FE07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
