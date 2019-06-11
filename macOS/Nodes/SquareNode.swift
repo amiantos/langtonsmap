@@ -44,40 +44,38 @@ class SquareNode: SKSpriteNode {
 
     private func updateType() {
         var nextType = self.type.getNext()
-        if nextType == .foliage || nextType == .sand {
-            // Check for water neighbors
-            let waterNeighbors = neighbors.filter { $0.type == .water }
-            let sandNeighbors = neighbors.filter { $0.type == .sand }
-            let foliageNeighbors = neighbors.filter { $0.type == .foliage }
+
+        let waterNeighbors = neighbors.filter { $0.type == .water }
+        let sandNeighbors = neighbors.filter { $0.type == .sand }
+        let foliageNeighbors = neighbors.filter { $0.type == .foliage }
+        let lavaNeighbors = neighbors.filter { $0.type == .lava }
+        let rockNeighbors = neighbors.filter { $0.type == .rock }
+
+        if nextType == .foliage {
             if sandNeighbors.count == 4 {
                 nextType = .sand
             } else if waterNeighbors.count >= 2 {
                 nextType = .sand
             } else if foliageNeighbors.count >= 5 {
                 nextType = .foliage
-            }
-            let lavaNeighbors = neighbors.filter { $0.type == .lava }
-            if !lavaNeighbors.isEmpty {
+            } else if rockNeighbors.count >= 3 {
                 nextType = .rock
             }
-            let rockNeighbors = neighbors.filter { $0.type == .rock }
-            if rockNeighbors.count >= 3 {
+        } else if nextType == .sand {
+            if foliageNeighbors.count >= 6 {
+                nextType = .foliage
+            } else if waterNeighbors.count >= 5 {
+                nextType = .water
+            } else if rockNeighbors.count >= 3 {
                 nextType = .rock
             }
-        } else if nextType == .dirt {
-//            let waterNeighbors = neighbors.filter { $0.type == .water }
-//            if waterNeighbors.count >= 2 {
-//                nextType = .sand
-//            }
-//            let rockNeighbors = neighbors.filter { $0.type == .rock }
-//            if rockNeighbors.count >= 3 {
-//                nextType = .rock
-//            }
         }
+
+        if !lavaNeighbors.isEmpty {
+            nextType = .rock
+        }
+
         changeType(nextType)
-//        if nextType != self.type {
-//            changeType(nextType)
-//        }
     }
 
     public func changeType(_ type: NodeType) {

@@ -170,7 +170,7 @@ extension GameScene {
         createAntNode(type: .water, size: CGSize(width: squareWidth, height: squareHeight))
 
         createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
-        createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
+//        createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
 
 //        createAntNode(type: .foliage, size: CGSize(width: squareWidth, height: squareHeight))
 //
