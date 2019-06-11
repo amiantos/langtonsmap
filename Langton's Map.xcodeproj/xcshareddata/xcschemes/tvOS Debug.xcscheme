@@ -17,7 +17,7 @@
                BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
                BuildableName = "tvOS.app"
                BlueprintName = "tvOS"
-               ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
+               ReferencedContainer = "container:Langton&apos;s Map.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
             BuildableName = "tvOS.app"
             BlueprintName = "tvOS"
-            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
+            ReferencedContainer = "container:Langton&apos;s Map.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
             BuildableName = "tvOS.app"
             BlueprintName = "tvOS"
-            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
+            ReferencedContainer = "container:Langton&apos;s Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "44FEDB5022AF1F94002FE07C"
             BuildableName = "tvOS.app"
             BlueprintName = "tvOS"
-            ReferencedContainer = "container:Langton&apos;s Planet.xcodeproj">
+            ReferencedContainer = "container:Langton&apos;s Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
