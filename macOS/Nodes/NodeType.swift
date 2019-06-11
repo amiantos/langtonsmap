@@ -56,7 +56,7 @@ enum NodeType: CaseIterable {
     }
 
     func canPaint(type: NodeType) -> Bool {
-        if type == self, self != .water {
+        if type == self {
             return true
         }
         switch (self, type) {
@@ -72,7 +72,7 @@ enum NodeType: CaseIterable {
 //            return true
 //        case (.water, .water):
 //            return false
-        case (.water, _):
+        case (.water, .sand):
             return true
         default:
             return false

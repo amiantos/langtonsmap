@@ -1,6 +1,6 @@
 //
 //  GameScene.swift
-//  Ant Saver
+//  Langton's Map
 //
 //  Created by Brad Root on 6/7/19.
 //  Copyright © 2019 Brad Root. All rights reserved.
@@ -166,6 +166,7 @@ extension GameScene {
         }
 
 
+        createAntNode(type: .water, size: CGSize(width: squareWidth, height: squareHeight))
         createAntNode(type: .water, size: CGSize(width: squareWidth, height: squareHeight))
 
         createAntNode(type: .lava, size: CGSize(width: squareWidth, height: squareHeight))
